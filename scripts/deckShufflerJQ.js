@@ -40,13 +40,11 @@ var cutDeck = function(){
   for( var i=cutIndex; i<deck.length; i++ ){
     topCut.push( deck[ i ] );
   }// end top cut loop
-
   // cards below cutIndex are the 'bottom"
   var bottomCut = [];
   for( var i=0; i<cutIndex; i++ ){
     bottomCut.push( deck[ i ] );
   }// end top cut loop
-
   // put top cut in the bottom of the deck
   deck = topCut;
   // push in bottomCut to the top
@@ -75,7 +73,7 @@ var showDeck = function(){
   // empty div by clas
   $( '.outputDiv' ).empty();
   // unordered list for the cards
-  $( '.outputDiv').append( '<ul>');
+  $( '.outputList').append( '<ul>');
   // for each card append a list item
   for( var i=0; i < deck.length; i++ ){
     $( '.outputDiv').append( '<li>' + deck[ i ].face + ' of ' + deck[ i ].suit + '</li>' );
@@ -87,20 +85,16 @@ var showDeck = function(){
 // shuffle array function from http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
-
   // While there remain elements to shuffle...
   while (0 !== currentIndex) {
-
     // Pick a remaining element...
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
-
     // And swap it with the current element.
     temporaryValue = array[currentIndex];
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
   }
-
   return array;
 }
 
