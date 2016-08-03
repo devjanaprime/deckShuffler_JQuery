@@ -2,6 +2,8 @@ console.log( 'deckShufflerJQ.js sourced' );
 
 $( document ).ready( function(){
   console.log( 'JQuery loaded' );
+  setupDeck();
+  showDeck();
 });
 
 // on click for cutDeckButton
@@ -70,15 +72,15 @@ var setupDeck = function(){
 
 var showDeck = function(){
   console.log( 'in showDeck' );
-  // clear div
+  // empty div by clas
   $( '.outputDiv' ).empty();
   // unordered list for the cards
   $( '.outputDiv').append( '<ul>');
-
-  // for each card add a list item
+  // for each card append a list item
   for( var i=0; i < deck.length; i++ ){
     $( '.outputDiv').append( '<li>' + deck[ i ].face + ' of ' + deck[ i ].suit + '</li>' );
   }
+  // close ul
   $( '.outputDiv').append( '</ul>');
 } // end funk
 
@@ -107,6 +109,3 @@ var shuffleDeck = function(){
   deck = shuffle( deck );
   showDeck();
 } // end funk
-
-//run the setupDeck Function
-setupDeck();
